@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Licencias;
+use App\Models\Licencia;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +27,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/licencia', Licencias::class)->name('licencia');
 });
