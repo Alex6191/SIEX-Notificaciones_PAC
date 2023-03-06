@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('historicos', function (Blueprint $table) {
+        Schema::create('personas', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('tipo')->default(0);
+            $table->text('nombreTitular')->default('');
+            $table->string('nifTitular',9)->nullable();
+            $table->string('codigoDIR3',9)->nullable();
+            $table->text('codigoDIRe')->nullable();
+            $table->text('descripcionEntidad')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('historicos');
+        Schema::dropIfExists('personas');
     }
 };

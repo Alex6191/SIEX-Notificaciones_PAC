@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('organismo_emisors', function (Blueprint $table) {
+        Schema::create('identificador_acuse_pdfs', function (Blueprint $table) {
             $table->id();
+            $table->binary('referencia')->nullable();
+            $table->text('csvResguardo')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('organismo_emisors');
+        Schema::dropIfExists('identificador_acuse_pdfs');
     }
 };

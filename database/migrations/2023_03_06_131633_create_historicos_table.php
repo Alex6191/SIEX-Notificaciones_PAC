@@ -13,8 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('peticion_accesos', function (Blueprint $table) {
+        Schema::create('historicos', function (Blueprint $table) {
             $table->id();
+            $table->dateTime('fecha',0);
+            $table->unsignedBigInteger('envio_id');
+            $table->unsignedBigInteger('user_id');
+
+            $table->foreign('envio_id')->references('id')->on('envios')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -26,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('peticion_accesos');
+        Schema::dropIfExists('historicos');
     }
 };

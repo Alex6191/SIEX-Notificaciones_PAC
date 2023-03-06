@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('acuses', function (Blueprint $table) {
+        Schema::create('organismo_emisor_raizs', function (Blueprint $table) {
             $table->id();
+            $table->string('codigo',9)->unique()->default('');
+            $table->string('nombre',255)->default('');
+            $table->string('nif',9)->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('acuses');
+        Schema::dropIfExists('organismo_emisor_raizs');
     }
 };

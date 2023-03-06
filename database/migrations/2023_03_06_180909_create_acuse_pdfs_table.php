@@ -13,8 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('anexos', function (Blueprint $table) {
+        Schema::create('acuse_pdfs', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre',100)->nullable();
+            $table->text('contenido')->nullable();
+            $table->text('mimeType')->nullable();
+            $table->text('metadato')->nullable();
+            $table->unsignedBigInteger('acuse_id');
+
+            $table->foreign('acuse_id')->references('id')->on('acuses')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -26,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('anexos');
+        Schema::dropIfExists('acuse_pdfs');
     }
 };

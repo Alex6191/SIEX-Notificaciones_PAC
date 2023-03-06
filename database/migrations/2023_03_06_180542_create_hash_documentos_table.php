@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('organismo_emisor_raizs', function (Blueprint $table) {
+        Schema::create('hash_documentos', function (Blueprint $table) {
             $table->id();
+            $table->text('hash')->default('');
+            $table->text('algoritmoHash')->default('');
+
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('organismo_emisor_raizs');
+        Schema::dropIfExists('hash_documentos');
     }
 };

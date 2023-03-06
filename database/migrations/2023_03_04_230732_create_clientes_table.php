@@ -21,9 +21,9 @@ return new class extends Migration
             $table->string('apellidoMaterno')->default('');
             $table->string('email')->default('');
             $table->string('telefono')->default('');
-            
+
             $table->unsignedBigInteger('licencia_id')->unique();
-            
+
             $table->foreign('licencia_id')
                 ->references('id')
                 ->on('licencias')

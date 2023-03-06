@@ -9,10 +9,15 @@ class Cliente extends Model
 {
     use HasFactory;
 
-    public function licencia(){
-        
-        //$licencia = Licencia::find($this->licencia_id);
+    //Relación uno a uno
+    public function licencia()
+    {
 
-        //return $this->belongsTo('App\Models\Licencia'); 
+        return $this->belongsTo('App\Models\Licencia');
+    }
+
+    //Relacion muchos a muchos
+    public function usuario(){
+        return $this->belongsToMany('App\Models\User');
     }
 }

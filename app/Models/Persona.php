@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Persona extends Model
 {
     use HasFactory;
+
+     //Relación uno a muchos
+     public function envio(){
+        return $this->hasMany('App\Models\Envio');
+    }
 }

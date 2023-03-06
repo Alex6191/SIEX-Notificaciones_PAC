@@ -9,12 +9,12 @@ class Licencia extends Model
 {
     use HasFactory;
 
-    protected $fillable=['id','codigo','fechaInicio','fechaFin'];
+    protected $fillable = ['id', 'codigo', 'fechaInicio', 'fechaFin'];
 
-    public function cliente(){
-        
-        //$cliente = Cliente::where('licencia_id',$this->id)->first();
+    //Relación uno a uno
+    public function cliente()
+    {
 
-        //return $this->hasOne('App\Models\Cliente'); 
+        return $this->hasOne('App\Models\Cliente');
     }
 }
